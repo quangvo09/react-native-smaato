@@ -1,6 +1,6 @@
 
-import { NativeModules } from 'react-native';
-
-const { RNSmaato } = NativeModules;
-
-export default RNSmaato;
+module.exports = {
+  get SmaatoRewarded() {
+    return require('./RNSmaatoRewarded').default;
+  },
+}
