@@ -5,7 +5,7 @@ import {
 
 import { createErrorFromErrorData } from './utils';
 
-const RNSmaatoRewarded = NativeModules.RNSmaatoRewarded;
+const { RNSmaatoRewarded } = NativeModules;
 
 const eventEmitter = new NativeEventEmitter(RNSmaatoRewarded);
 

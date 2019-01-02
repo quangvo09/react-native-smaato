@@ -6,7 +6,7 @@
 #import "RCTEventEmitter.h"
 #endif
 
-@interface RNSmaatoRewarded : NSObject <RCTBridgeModule>
+@interface RNSmaatoRewarded : RCTEventEmitter <RCTBridgeModule>
 
 @end
   
