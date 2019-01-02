@@ -7,12 +7,6 @@
 #import "RCTUtils.h"
 #endif
 
-#if __has_include(<iSoma/iSoma.h>)
-#import <iSoma/iSoma.h>
-#else
-#import "iSoma.h"
-#endif
-
 static NSString *const kEventAdLoaded = @"rewardedVideoAdLoaded";
 static NSString *const kEventAdFailedToLoad = @"rewardedVideoAdFailedToLoad";
 static NSString *const kEventAdOpened = @"rewardedVideoAdOpened";
@@ -71,14 +65,14 @@ RCT_EXPORT_METHOD(requestAd:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromise
       _adView.delegate = self;
     }
 
-    [_adView load]
+    [_adView load];
 }
 
 RCT_EXPORT_METHOD(showAd:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject)
 {
     if (_adView.isLoaded) {
-      [_adView show]
-      resolve(nil);
+        [_adView show];
+        resolve(nil);
     }
     else {
       reject(@"E_AD_NOT_READY", @"Ad is not ready.", nil);
@@ -87,7 +81,7 @@ RCT_EXPORT_METHOD(showAd:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRej
 
 RCT_EXPORT_METHOD(isReady:(RCTResponseSenderBlock)callback)
 {
-    callback(_adView.isLoaded);
+    callback(@[[NSNumber numberWithBool:_adView.isLoaded]]);
 }
 
 - (void)startObserving

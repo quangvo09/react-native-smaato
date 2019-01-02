@@ -6,6 +6,8 @@
 #import "RCTEventEmitter.h"
 #endif
 
+@import iSoma;
+
 @interface RNSmaatoRewarded : RCTEventEmitter <RCTBridgeModule>
 
 @end
